@@ -1,0 +1,23 @@
+<vector android:height="200dp" android:tint="#000000"
+    android:viewportHeight="200" android:viewportWidth="200"
+    android:width="200dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:name="rotationGroup">
+        <path
+            android:strokeColor="@android:color/white"
+            android:strokeWidth="2"
+            android:pathData="M100,10 a90,90 0 1,0 1,0 "/>
+        <path
+            android:strokeColor="@android:color/white"
+            android:strokeWidth="2"
+            android:fillColor="#FFBB86FC"
+            android:pathData="M100,75 a20,20 0 1,0 1,0 "/>
+        <path
+            android:fillColor="#0000FF"
+            android:fillType="nonZero"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2"
+            android:pathData="M100,1 l10,20 l-20,0 z"/>
+    </group>
+
+</vector>
