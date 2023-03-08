@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.android.tackingassist.SharedPreferenceUtil
+import com.example.android.tackingassist.reduse_deg
 import com.example.android.tackingassist.toText
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
     private val TAG = "MainActivity"
 
-    private var boatBearing = 0.0f
+    private var boatHeading = 0.0f
     private var boatSpeed = 0.0f
     private var windBearing = 0.0f
 
@@ -76,9 +77,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE)
 
 
-        // finding and updating textViewWindDirection
-        val textViewWindDirection = findViewById(R.id.textViewWindDirection) as TextView
-        textViewWindDirection.text = R.string.main_activity_wind_dir.toString() + "0.0 deg"
+        // finding and updating textViewWindDir
+        val textViewWindDir = findViewById(R.id.textViewWindDir) as TextView
+        textViewWindDir.text = "000"
+
 
         //Find ImageView
         boatImageView = findViewById(R.id.imageViewBoat)
@@ -86,8 +88,8 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         compassImageView = findViewById(R.id.imageViewCompass)
 
         //Set color to compass and boat
-        compassImageView.setColorFilter(getResources().getColor(R.color.purple_700))
-        boatImageView.setColorFilter(getResources().getColor(R.color.teal_700))
+        compassImageView.setColorFilter(R.color.purple_700)
+        boatImageView.setColorFilter(R.color.teal_700)
 
         startButton = findViewById(R.id.buttonStart)
         startButton.setOnClickListener {
@@ -113,10 +115,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             // your code to perform when the user clicks on the button
             Log.d(TAG, "You clicked btn_click_wind_minus")
             val windBearingOld = windBearing
-            windBearing = windBearing - 5.0f
-            // finding and updating textViewClock
-            val textViewWndDir = findViewById(R.id.textViewWindDirection) as TextView
-            textViewWndDir.text = "windBearing = $windBearing"
+            windBearing = reduse_deg(windBearing - 5.0f)
+            //updating textViewClock
+            textViewWindDir.text = windBearing.toInt().toString()
+
             // TODO:  Gjør textViewWndDir til member variable
             // TODO:  Sett textViewWndDir i oncreate
             //Rotate compassImage
@@ -130,9 +132,8 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             // your code to perform when the user clicks on the button
             Log.d(TAG, "You clicked btn_click_wind_plus")
             val windBearingOld = windBearing
-            windBearing = windBearing + 5.0f
-            val textViewWndDir = findViewById(R.id.textViewWindDirection) as TextView
-            textViewWndDir.text = "windBearing = $windBearing"
+            windBearing = reduse_deg(windBearing + 5.0f)
+            textViewWindDir.text = windBearing.toInt().toString()
             //Rotate compassImage
             val compassAnimator = ObjectAnimator.ofFloat(compassImageView, View.ROTATION, 360-windBearingOld, 360-windBearing)
             compassAnimator.duration = 500
@@ -294,8 +295,8 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
             // here wi find action when a location is coming in
             if (location != null) {
-                val boatBearingOld = boatBearing
-                boatBearing = location.getBearing()
+                val boatHeadingOld = boatHeading
+                boatHeading = location.getBearing()
                 val boatSpeed2 = location.getSpeed() * 1.9438452 // m/s to knot
                 boatSpeed = boatSpeed2.toFloat()
                 val date = Date(location.getTime())
@@ -309,14 +310,18 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 textViewClock.text = utc
                 // finding and updating textViewSpeed
                 val textViewSpeed = findViewById(R.id.textViewSpeed) as TextView
-                textViewSpeed.text = boatSpeed.toString()
+                //textViewSpeed.text = boatSpeed.toString() + " kt"
+                textViewSpeed.text = String.format("%.2f kt", boatSpeed)
                 // finding and updating textViewBearing
                 val textViewBearing = findViewById(R.id.textViewBearing) as TextView
-                textViewBearing.text = boatBearing.toString()
+                textViewBearing.text = boatHeading.toInt().toString()
+                // finding and updating textViewBearing
+                val textViewHeading = findViewById(R.id.textViewHeading) as TextView
+                textViewHeading.text = boatHeading.toInt().toString()
 
                 //Rotate boatImage
 //                val boatImageView: ImageView = findViewById(R.id.imageViewBoat)
-                val boatAnimator = ObjectAnimator.ofFloat(boatImageView, View.ROTATION, boatBearingOld-windBearing, boatBearing-windBearing)
+                val boatAnimator = ObjectAnimator.ofFloat(boatImageView, View.ROTATION, boatHeadingOld-windBearing, boatHeading-windBearing)
                 boatAnimator.duration = 500
                 boatAnimator.start()
 

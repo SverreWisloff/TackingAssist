@@ -21,6 +21,20 @@ import androidx.core.content.edit
 import com.example.tackingassist.R
 
 /**
+ * Degrees between 0 and 360
+ */
+fun reduse_deg(deg: Float) : Float {
+    var redused = deg
+    if (redused<0.0f)   {   redused += 360f }
+    if (redused<0.0f) 	{	redused += 360f }
+    if (redused>360.0f)	{	redused -= 360f }
+    if (redused>360.0f)	{	redused -= 360f }
+    return redused
+}
+
+
+
+/**
  * Returns the `location` object as a human readable string.
  */
 fun Location?.toText(): String {
