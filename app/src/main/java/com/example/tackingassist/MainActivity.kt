@@ -16,6 +16,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.android.tackingassist.SharedPreferenceUtil
@@ -69,6 +70,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Force dark mode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        delegate.applyDayNight()
+
         setContentView(R.layout.activity_main)
 
         foregroundOnlyBroadcastReceiver = ForegroundOnlyBroadcastReceiver()
@@ -87,9 +92,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         windImageView = findViewById(R.id.imageViewWind)
         compassImageView = findViewById(R.id.imageViewCompass)
 
-        //Set color to compass and boat
-        compassImageView.setColorFilter(R.color.purple_700)
+        //Set color to compass, wind and boat
+        compassImageView.setColorFilter(R.color.white)
         boatImageView.setColorFilter(R.color.teal_700)
+        windImageView.setColorFilter(R.color.white)
 
         startButton = findViewById(R.id.buttonStart)
         startButton.setOnClickListener {

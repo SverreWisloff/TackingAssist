@@ -7,15 +7,15 @@
         android:pivotY="0.0"
         android:rotation="0.0" >
         <path
-            android:strokeColor="@android:color/holo_blue_light"
+            android:strokeColor="@android:color/white"
             android:strokeWidth="1"
             android:pathData="M100,10 a90,90 0 1,0 1,0 "/>
         <path
-            android:strokeColor="@android:color/holo_blue_light"
+            android:strokeColor="@android:color/white"
             android:strokeWidth="4"
             android:pathData="M36.36,36.36 a90,90 0 0,1 127.28,0 L100,100 z"/>
         <path
-            android:strokeColor="@android:color/holo_blue_dark"
+            android:strokeColor="@android:color/white"
             android:strokeWidth="2"
             android:pathData="M100,20 l3,0 l0,20 l3,0 l-6,10 l-6,-10 l3,0 l0,-20 z"/>
     </group>

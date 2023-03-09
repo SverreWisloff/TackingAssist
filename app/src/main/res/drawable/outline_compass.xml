@@ -10,7 +10,7 @@
         <path
             android:strokeColor="@android:color/white"
             android:strokeWidth="2"
-            android:fillColor="#FF03DAC5"
+            android:fillColor="?attr/colorOnSecondary"
             android:pathData="M100,80 a20,20 0 1,0 1,0 "/>
         <path
             android:fillColor="#0000FF"
