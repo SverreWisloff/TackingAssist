@@ -17,13 +17,14 @@ package com.example.android.tackingassist
 
 import android.content.Context
 import android.location.Location
+import android.util.Log
 import androidx.core.content.edit
 import com.example.tackingassist.R
 
 /**
  * Degrees between 0 and 360
  */
-fun reduse_deg(deg: Float) : Float {
+fun reduseDeg(deg: Float) : Float {
     var redused = deg
     if (redused<0.0f)   {   redused += 360f }
     if (redused<0.0f) 	{	redused += 360f }
@@ -32,6 +33,52 @@ fun reduse_deg(deg: Float) : Float {
     return redused
 }
 
+/**
+ * function run in debug to achieve drawable hash-marks to the compass
+ */
+fun drawHashMarks(canvassSize: Int) : String {
+    val pathData: String
+    var sX: Double
+    var sY: Double
+    var eX: Double
+    var eY: Double
+    val outerRad = canvassSize / 2.0
+    var innerRad = outerRad - 12.0
+    val builder = StringBuilder()
+    val builder2 = StringBuilder()
+
+    // draw 10-deg tick marks.
+    // Format: M180,180 L190,190 M10,10 L16,16
+    var i = 0.0
+    while (i < 2.0 * Math.PI) {
+        //compute coordinates to hash-marks
+        sY = outerRad + innerRad * Math.sin(i)
+        sX = outerRad + innerRad * Math.cos(i)
+        eY = outerRad + outerRad * Math.sin(i)
+        eX = outerRad + outerRad * Math.cos(i)
+        //format Moveto - Lineto string
+        val formattedString = String.format("M%.1f,%.1fL%.1f,%.1f", sX , sY , eX , eY )
+        builder.append(formattedString)
+        i += (Math.PI / 18.0)
+    }
+    Log.d("drawHashMarks-10", builder.toString())
+
+    // draw 2-deg tick marks.
+    innerRad = outerRad - 6
+    i = 0.0
+    while (i < 2.0 * Math.PI) {
+        sY = outerRad + innerRad * Math.sin(i)
+        sX = outerRad + innerRad * Math.cos(i)
+        eY = outerRad + outerRad * Math.sin(i)
+        eX = outerRad + outerRad * Math.cos(i)
+        val formattedString = String.format("M%.1f,%.1fL%.1f,%.1f", sX , sY , eX , eY )
+        builder2.append(formattedString)
+        i += (Math.PI / 90.0)
+    }
+    Log.d("drawHashMarks-2", builder2.toString())
+    pathData = builder.toString() + builder2.toString()
+    return pathData
+}
 
 
 /**

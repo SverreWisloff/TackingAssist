@@ -8,11 +8,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <ImageView
+        android:id="@+id/imageViewCompass"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/outline_compass2" />
+
     <ImageView
         android:id="@+id/imageViewBoat"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="170dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,22 +32,10 @@
         app:srcCompat="@drawable/outline_boat" />
 
     <ImageView
-        android:id="@+id/imageViewCompass"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/outline_compass"
-        tools:layout_editor_absoluteY="100dp" />
-
-    <ImageView
         android:id="@+id/imageViewWind"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,47 +44,36 @@
 
 
     <TextView
-        android:id="@+id/textViewBearing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
-        android:text="TextView - Bearing"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewWind" />
-
-    <TextView
         android:id="@+id/textViewSpeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="6dp"
         android:text="TextView - Speed"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBearing" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCompass" />
 
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Start"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="54sp"
+        android:layout_marginBottom="16dp"
+        android:text="Start GPS"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp"
         android:text="TextView - Clock"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSpeed" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCompass" />
 
     <Button
         android:id="@+id/buttonWindMinus5"
@@ -113,8 +102,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="000"
-        android:textColor="#AFAFAF"
-        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/imageViewCompass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -124,13 +113,40 @@
         android:id="@+id/textViewHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="235dp"
-        android:text="TextView"
-        android:textColor="#AFAFAF"
-        android:textSize="20sp"
+
+        android:background="@android:color/black"
+        android:text="003"
+        android:textColor="@color/orange"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewCompass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewCompass" />
+
+    <TextView
+        android:id="@+id/textViewPortCL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="001"
+        android:textAlignment="textStart"
+        android:textColor="#86EC5A"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewWind"
+        app:layout_constraintTop_toTopOf="@+id/imageViewWind" />
+
+    <TextView
+        android:id="@+id/textViewStarbCL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="002"
+        android:textColor="#F86D79"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewCompass"
+        app:layout_constraintTop_toTopOf="@+id/imageViewCompass" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

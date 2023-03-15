@@ -1,4 +1,4 @@
-<vector android:height="200dp" android:tint="#000000"
+<vector android:height="200dp"
     android:viewportHeight="200" android:viewportWidth="200"
     android:width="200dp" xmlns:android="http://schemas.android.com/apk/res/android">
     <group
@@ -7,16 +7,29 @@
         android:pivotY="0.0"
         android:rotation="0.0" >
         <path
-            android:strokeColor="@android:color/white"
+            android:strokeColor="#0000FF"
             android:strokeWidth="1"
-            android:pathData="M100,10 a90,90 0 1,0 1,0 "/>
-        <path
-            android:strokeColor="@android:color/white"
-            android:strokeWidth="4"
             android:pathData="M36.36,36.36 a90,90 0 0,1 127.28,0 L100,100 z"/>
+        <path
+            android:strokeColor="#0000FF"
+            android:strokeWidth="1"
+            android:pathData="M40,40 a85,85 0 0,1 121,0 "/>
         <path
             android:strokeColor="@android:color/white"
             android:strokeWidth="2"
-            android:pathData="M100,20 l3,0 l0,20 l3,0 l-6,10 l-6,-10 l3,0 l0,-20 z"/>
+            android:pathData="M100,20 l3,0 l0,10 l3,0 l-6,10 l-6,-10 l3,0 l0,-10 z"/>
+        <path
+            android:strokeColor="@android:color/holo_red_light"
+            android:strokeWidth="4"
+            android:pathData="M36.36,36.36 L100,100 "/>
+        <path
+            android:strokeColor="#4CAF50"
+            android:strokeWidth="4"
+            android:pathData="M163.36,36.36 L100,100 "/>
+        <path
+            android:strokeColor="#0000FF"
+            android:strokeWidth="1"
+            android:fillColor="#B7000000"
+            android:pathData="M100,70 a30,30 0 1,0 1,0 z"/>
     </group>
 </vector>
