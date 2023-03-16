@@ -1,4 +1,4 @@
-package com.example.tackingassist
+package com.sverreskort.tackingassist
 
 import android.Manifest
 import android.animation.ObjectAnimator
@@ -18,9 +18,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.example.android.tackingassist.SharedPreferenceUtil
-import com.example.android.tackingassist.drawHashMarks
-import com.example.android.tackingassist.reduseDeg
+import com.sverreskort.android.tackingassist.SharedPreferenceUtil
+import com.sverreskort.android.tackingassist.drawHashMarks
+import com.sverreskort.android.tackingassist.reduseDeg
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*

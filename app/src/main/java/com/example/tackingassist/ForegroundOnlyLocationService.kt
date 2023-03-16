@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.tackingassist
+package com.sverreskort.tackingassist
 
 
 
@@ -31,8 +31,8 @@ import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.gms.location.*
 import java.util.concurrent.TimeUnit
-import com.example.android.tackingassist.SharedPreferenceUtil
-import com.example.android.tackingassist.toText
+import com.sverreskort.android.tackingassist.SharedPreferenceUtil
+import com.sverreskort.android.tackingassist.toText
 
 
 /**
@@ -334,7 +334,7 @@ class ForegroundOnlyLocationService : Service() {
     companion object {
         private const val TAG = "ForegroundOnlyLocationService"
 
-        private const val PACKAGE_NAME = "com.example.android.tackingassist"
+        private const val PACKAGE_NAME = "com.sverreskort.android.tackingassist"
 
         internal const val ACTION_FOREGROUND_ONLY_LOCATION_BROADCAST =
             "$PACKAGE_NAME.action.FOREGROUND_ONLY_LOCATION_BROADCAST"

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.tackingassist'
+    namespace 'com.sverreskort.tackingassist'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.tackingassist"
+        applicationId "com.sverreskort.tackingassist"
         minSdk 24
         targetSdk 33
         versionCode 1

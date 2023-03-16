@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.tackingassist
+package com.sverreskort.android.tackingassist
 
 import android.content.Context
 import android.location.Location
 import android.util.Log
 import androidx.core.content.edit
-import com.example.tackingassist.R
+import com.sverreskort.tackingassist.R
 
 /**
  * Degrees between 0 and 360
