@@ -29,5 +29,21 @@ We use your location data only to provide you with the services you requested, a
 
 ### Other Data:
 
-In addition to location data, we dont collect other personal information about your use of our app.
+In addition to location data, we do not collect any other personal information about your use of our app.
 
+## Versions
+
+1.0: 
+ - Menu: Set wind dir by port/starboard close-hauled direction
+ - Up/Down-buttons : increments wind direction with 5 degrees
+ 
+## Please use it if you find it convinient
+
+And I am happy to hear what you think about it
+
+The code for the app can be studied here:
+<a href="https://github.com/SverreWisloff/TackingAssist/">https://github.com/SverreWisloff/TackingAssist/</a>
+
+Happy sailing!
+
+-Sverre 
