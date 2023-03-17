@@ -73,6 +73,8 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         delegate.applyDayNight()
 
+        supportActionBar?.hide()
+
         setContentView(R.layout.activity_main)
 
         foregroundOnlyBroadcastReceiver = ForegroundOnlyBroadcastReceiver()

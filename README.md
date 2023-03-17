@@ -34,7 +34,7 @@ In addition to location data, we do not collect any other personal information a
 ## Versions
 
 1.0: 
- - Menu: Set wind dir by port/starboard close-hauled direction
+ - GPS: Start and stop location service from GPSSet wind dir by port/starboard close-hauled direction
  - Up/Down-buttons : increments wind direction with 5 degrees
  
 ## Please use it if you find it convinient
