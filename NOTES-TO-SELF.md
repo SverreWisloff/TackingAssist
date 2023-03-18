@@ -69,30 +69,30 @@ Kommentarer i xml:
 ```
 
 ## Graphics
-Codelab: Add vector drawable assets
-    https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience#3
-    https://developer.android.com/codelabs/basic-android-kotlin-training-create-dice-roller-app-with-button#4
-VectorDrawable pathData
-    https://medium.com/@ali.muzaffar/understanding-vectordrawable-pathdata-commands-in-android-d56a6054610e
-    https://www.w3.org/TR/SVG/paths.html
-    https://developer.android.com/studio/write/vector-asset-studio
+#### Codelab: Add vector drawable assets
+- [ ] https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience#3
+- [ ] https://developer.android.com/codelabs/basic-android-kotlin-training-create-dice-roller-app-with-button#4
+#### VectorDrawable pathData
+- [ ] https://medium.com/@ali.muzaffar/understanding-vectordrawable-pathdata-commands-in-android-d56a6054610e
+- [ ] https://www.w3.org/TR/SVG/paths.html
+- [ ] https://developer.android.com/studio/write/vector-asset-studio
 ```
 moveto: M (abs.coord)
 lineto: L (abs.coord)
 Ex: M180,180 L190,190 M10,10 L16,16
 ```
-Codelab: Smooth rotatin og graphic
+### Codelab: Smooth rotatin og graphic
 - [ ] https://developer.android.com/codelabs/advanced-android-kotlin-training-property-animation#3
-Draw lines
+### Draw lines
 - [ ] https://www.geeksforgeeks.org/how-to-draw-a-line-in-android-with-kotlin/
 - [ ] https://www.tutorialspoint.com/how-to-draw-a-line-in-android-using-kotlin
-Kotlin Line Chart
+### Kotlin Line Chart
 - [ ] https://medium.com/@yilmazvolkan/kotlinlinecharts-c2a730226ff1
 
 ## Location - GPS
-Android Run Tracking App
++ Android Run Tracking App
 - [ ] https://www.kodeco.com/28767779-how-to-make-an-android-run-tracking-app
-Codelab: Receive location updates in Android with Kotlin
++ Codelab: Receive location updates in Android with Kotlin
 - [ ] https://codelabs.developers.google.com/codelabs/while-in-use-location#3
 
 ## Sensors
