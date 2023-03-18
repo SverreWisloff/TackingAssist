@@ -51,16 +51,14 @@ val myStr = String.format("The PI value is %.2f", PI)
 Format string: String.format("%.2f kt", boatSpeed)
 ```
 
-
-
 Kommentarer i xml:
 1)
-```
+``` xml
 /// <text><![CDATA[Hello World!]]></text>
 ```
 
 2)
-```
+``` xml
 <!--
 	<text>
 		<![CDATA[Hello World!]]>
