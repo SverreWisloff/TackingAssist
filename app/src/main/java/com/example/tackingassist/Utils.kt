@@ -34,7 +34,9 @@ fun reduseDeg(deg: Float) : Float {
 }
 
 /**
- * function run in debug to achieve drawable hash-marks to the compass
+ * function that print  drawable hash-marks for the compass
+ * printed to Log
+ * Only run in debug to het the hash-marks, ant copy them to drawable/outline_compass2.xml
  */
 fun drawHashMarks(canvassSize: Int) : String {
     val pathData: String
@@ -61,7 +63,7 @@ fun drawHashMarks(canvassSize: Int) : String {
         builder.append(formattedString)
         i += (Math.PI / 18.0)
     }
-    Log.d("drawHashMarks-10", builder.toString())
+    Log.d("drawHashMarks-10deg", builder.toString())
 
     // draw 2-deg tick marks.
     innerRad = outerRad - 6
@@ -75,7 +77,7 @@ fun drawHashMarks(canvassSize: Int) : String {
         builder2.append(formattedString)
         i += (Math.PI / 90.0)
     }
-    Log.d("drawHashMarks-2", builder2.toString())
+    Log.d("drawHashMarks-2deg", builder2.toString())
     pathData = builder.toString() + builder2.toString()
     return pathData
 }

@@ -56,7 +56,6 @@ class ForegroundOnlyLocationService : Service() {
 
     private lateinit var notificationManager: NotificationManager
 
-    // TODO: Step 1.1, Review variables (no changes).
     // FusedLocationProviderClient - Main class for receiving location updates.
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
@@ -79,11 +78,10 @@ class ForegroundOnlyLocationService : Service() {
 
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        // TODO: Step 1.2, Review the FusedLocationProviderClient.
         // this is the main class for getting location updates.
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // TODO: Step 1.3, Create a LocationRequest.
+        // Create a LocationRequest.
         locationRequest = LocationRequest.create().apply {
             // Sets the desired interval for active location updates. This interval is inexact. You
             // may not receive updates at all if no location sources are available, or you may
@@ -109,7 +107,7 @@ class ForegroundOnlyLocationService : Service() {
 
         Log.d(TAG, "locationRequest: $locationRequest")
 
-        // TODO: Step 1.4, Initialize the LocationCallback.
+        // Initialize the LocationCallback.
         // The LocationCallback you create here is the callback that the FusedLocationProviderClient
         // will call when a new location update is available.
         // In your callback, you first get the latest location using a LocationResult object.
@@ -219,7 +217,7 @@ class ForegroundOnlyLocationService : Service() {
         startService(Intent(applicationContext, ForegroundOnlyLocationService::class.java))
 
         try {
-            // TODO: Step 1.5, Subscribe to location changes.
+            // Subscribe to location changes.
             // This method requires a try/catch  block because a SecurityException occurs when your app doesn't have permission to access location information.
             fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
 
@@ -233,7 +231,7 @@ class ForegroundOnlyLocationService : Service() {
         Log.d(TAG, "unsubscribeToLocationUpdates()")
 
         try {
-            // TODO: Step 1.6, Unsubscribe to location changes.
+            // Unsubscribe to location changes.
             val removeTask = fusedLocationProviderClient.removeLocationUpdates(locationCallback)
             removeTask.addOnCompleteListener { task ->
                 if (task.isSuccessful) {

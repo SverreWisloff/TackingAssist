@@ -47,8 +47,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
     private val TAG = "MainActivity"
 
+    //Current dynamics
     private var boatHeading = 0.0f
-    private var boatSpeed = 0.0f
+    private var boatSpeed : Double = 0.0
     private var windBearing = 0.0f
 
     // Monitors connection to the while-in-use service.
@@ -98,12 +99,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         windImageView = findViewById(R.id.imageViewWind)
         compassImageView = findViewById(R.id.imageViewCompass)
 
-        //Set color to compass, wind and boat
-        //compassImageView.setColorFilter(R.color.white)
-        //boatImageView.setColorFilter(R.color.teal_700)
-        //windImageView.setColorFilter(R.color.white)
-        //TODO delete this lines if it works without them ...
-
         startButton = findViewById(R.id.buttonStart)
         startButton.setOnClickListener {
             val enabled = sharedPreferences.getBoolean(
@@ -113,7 +108,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 foregroundOnlyLocationService?.unsubscribeToLocationUpdates()
             } else {
 
-                // TODO: Step 1.0, Review Permissions: Checks and requests if needed.
+                // Checks and requests if needed.
                 if (foregroundPermissionApproved()) {
                     foregroundOnlyLocationService?.subscribeToLocationUpdates()
                         ?: Log.d(TAG, "Service Not Bound")
@@ -121,6 +116,19 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                     requestForegroundPermissions()
                 }
             }
+        }
+        fun UpdateCompassImage(windBearingOld:Float, windBearingNew:Float){
+            //updating WindDir-texts
+            textViewWindDir.text = windBearing.toInt().toString()
+            val StarbCL = reduseDeg(windBearing - 45)
+            textViewStarbCL.text = StarbCL.toInt().toString()
+            val PortCL = reduseDeg(windBearing + 45)
+            textViewPortCL.text = PortCL.toInt().toString()
+
+            //Rotate compassImage
+            val compassAnimator = ObjectAnimator.ofFloat(compassImageView, View.ROTATION, 360-windBearingOld, 360-windBearing)
+            compassAnimator.duration = 500
+            compassAnimator.start()
         }
         // get reference to button and set on-click listener
         val btn_click_wind_minus : Button = findViewById(R.id.buttonWindMinus5)
@@ -130,18 +138,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             val windBearingOld = windBearing
             windBearing = reduseDeg(windBearing - 5.0f)
 
-            //updating WindDir-texts
-            textViewWindDir.text = windBearing.toInt().toString()
-            val StarbCL = reduseDeg(windBearing - 45)
-            textViewStarbCL.text = StarbCL.toInt().toString()
-            val PortCL = reduseDeg(windBearing + 45)
-            textViewPortCL.text = PortCL.toInt().toString()
-
-            // TODO:  Samle kode for -5 og +5
-            //Rotate compassImage
-            val compassAnimator = ObjectAnimator.ofFloat(compassImageView, View.ROTATION, 360-windBearingOld, 360-windBearing)
-            compassAnimator.duration = 500
-            compassAnimator.start()
+            UpdateCompassImage(windBearingOld, windBearing)
         }
         // get reference to button and set on-click listener
         val btn_click_wind_plus : Button = findViewById(R.id.buttonWindPlus5)
@@ -151,18 +148,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             val windBearingOld = windBearing
             windBearing = reduseDeg(windBearing + 5.0f)
 
-            //updating WindDir-texts
-            textViewWindDir.text = windBearing.toInt().toString()
-            val StarbCL = reduseDeg(windBearing - 45)
-            textViewStarbCL.text = StarbCL.toInt().toString()
-            val PortCL = reduseDeg(windBearing + 45)
-            textViewPortCL.text = PortCL.toInt().toString()
-
-            //Rotate compassImage
-            val compassAnimator = ObjectAnimator.ofFloat(compassImageView, View.ROTATION, 360-windBearingOld, 360-windBearing)
-            compassAnimator.duration = 500
-            compassAnimator.start()
+            UpdateCompassImage(windBearingOld, windBearing)
         }
+
     }
 
     override fun onStart() {
@@ -212,7 +200,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         }
     }
 
-    // TODO: Step 1.0, Review Permissions: Method checks if permissions approved.
+    // Method checks if permissions approved.
     private fun foregroundPermissionApproved(): Boolean {
         return PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
             this,
@@ -220,7 +208,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         )
     }
 
-    // TODO: Step 1.0, Review Permissions: Method requests permissions.
+    // Method requests permissions.
     private fun requestForegroundPermissions() {
         val provideRationale = foregroundPermissionApproved()
 
@@ -251,7 +239,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         }
     }
 
-    // TODO: Step 1.0, Review Permissions: Handles permission result.
+    // Handles permission result.
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
@@ -313,22 +301,20 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
      */
     private inner class ForegroundOnlyBroadcastReceiver : BroadcastReceiver() {
 
+        // here is the central action when a location is received
         override fun onReceive(context: Context, intent: Intent) {
             val location = intent.getParcelableExtra<Location>(
                 ForegroundOnlyLocationService.EXTRA_LOCATION
             )
 
-            // here wi find action when a location is coming in
             if (location != null) {
                 val boatHeadingOld = boatHeading
                 boatHeading = location.getBearing()
-                val boatSpeed2 = location.getSpeed() * 1.9438452 // m/s to knot
-                boatSpeed = boatSpeed2.toFloat()
-                val date = Date(location.getTime())
-                val simpleDateFormat = SimpleDateFormat("HH:mm:ss")
-                val utc = simpleDateFormat.format(date.time)
+                boatSpeed = location.getSpeed() * 1.9438452
 
-                // TODO: lag member variable av speed og bearing
+                val date = Date(location.getTime())
+                val simpleDateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault() )
+                val utc = simpleDateFormat.format(date.time)
 
                 // finding and updating textViewClock
                 val textViewClock = findViewById(R.id.textViewClock) as TextView
@@ -336,7 +322,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 // finding and updating textViewSpeed
                 val textViewSpeed = findViewById(R.id.textViewSpeed) as TextView
                 //textViewSpeed.text = boatSpeed.toString() + " kt"
-                textViewSpeed.text = String.format("Speed = %.2f kt", boatSpeed)
+                textViewSpeed.text = String.format("Speed = %.1f kt", boatSpeed)
                 // finding and updating textViewBearing
                 val textViewHeading = findViewById(R.id.textViewHeading) as TextView
                 textViewHeading.text = boatHeading.toInt().toString()
@@ -346,7 +332,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 val boatAnimator = ObjectAnimator.ofFloat(boatImageView, View.ROTATION, boatHeadingOld-windBearing, boatHeading-windBearing)
                 boatAnimator.duration = 1000
                 boatAnimator.start()
-
             }
         }
 

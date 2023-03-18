@@ -5,7 +5,7 @@
     <!-- Required for foreground services on P+. -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <!-- TODO: Step 1.0, Review Permissions: Specify permissions you are using. -->
+    <!-- Review Permissions: Specify permissions used -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
         tools:ignore="CoarseFineLocation" />
 
@@ -29,7 +29,7 @@
         </activity>
 
         <!-- Foreground services in Android 10+ require type. -->
-        <!-- TODO: 2.2, Add foreground service type. -->
+        <!-- Add foreground service type. -->
         <service
             android:name="com.sverreskort.tackingassist.ForegroundOnlyLocationService"
             android:enabled="true"

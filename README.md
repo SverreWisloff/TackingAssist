@@ -9,7 +9,7 @@ Observe wind turns and speed-changes, and see the consequences and make good dec
 
 ## Use
 
-The direction where the wind comes from is allways facing up, and the top number is the direction against the wind-eye. The blue "N" shows the direction to north. The yellow dot, and gray boat show your course over ground direction.
+The direction where the wind comes from is always facing up, and the top number is the direction against the wind-eye. The blue "N" shows the direction to north. The yellow dot, and gray boat show your course over ground direction.
 
 In the center circle, course over ground is displayed in yellow. The green number is speed. 
 
@@ -33,7 +33,8 @@ In addition to location data, we do not collect any other personal information a
 
 ## Versions
 
-1.0: 
+1.0.2 (2): 
+ - First version
  - GPS: Start and stop location service from GPSSet wind dir by port/starboard close-hauled direction
  - Up/Down-buttons : increments wind direction with 5 degrees
  
