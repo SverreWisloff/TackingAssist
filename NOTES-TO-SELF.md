@@ -9,41 +9,41 @@ C:\Users\sw\Dropbox\00 SVERRE\Android\keystore\
 C:\Users\sw\Dropbox\00 SVERRE\Android\keystores.jks
 
 Release:
-1) Build.gradle: update "versionCode" & "versionName"
-2) Build > Rebuild project
-3) Build > Generate Signed Bundle/APK
+1.Build.gradle: update "versionCode" & "versionName"
+2. Build > Rebuild project
+3. Build > Generate Signed Bundle/APK
 
 C:\Users\sw\AndroidStudioProjects\TackingAssist\app\release\
 
 ## Update launch icon:
-1) update ic_launcher_foreground.xml
-2) Start "Image Asset Studio"
-   Configure Imate Asset
-   Velg: Launcher icons
-   Navn: ic_launcher
-   Velg foreground layer: C:\Users\sw\AndroidStudioProjects\TackingAssist\app\src\main\res\drawable\ic_launcher_foreground.xml
-   Velg background layer: C:\Users\sw\AndroidStudioProjects\TackingAssist\app\src\main\res\drawable\ic_launcher_background.xml
+1. update ic_launcher_foreground.xml
+2. Start "Image Asset Studio"
+3.   Configure Imate Asset
+4.   Velg: Launcher icons
+5.   Navn: ic_launcher
+6.   Velg foreground layer: C:\Users\sw\AndroidStudioProjects\TackingAssist\app\src\main\res\drawable\ic_launcher_foreground.xml
+7.   Velg background layer: C:\Users\sw\AndroidStudioProjects\TackingAssist\app\src\main\res\drawable\ic_launcher_background.xml
 
 ## GitHub integrastion:
-1) Generate token: https://stackoverflow.com/questions/64869735/cant-log-in-to-github-on-android-studio
-2) Select repo(all), read:org (under admin:org), gist, workflow
-3) How to Upload Android Studio Project to GitHub? https://dev.to/vtsen/how-to-upload-android-studio-project-to-github-4d2
+1. Generate token: https://stackoverflow.com/questions/64869735/cant-log-in-to-github-on-android-studio
+2. Select repo(all), read:org (under admin:org), gist, workflow
+3. How to Upload Android Studio Project to GitHub? https://dev.to/vtsen/how-to-upload-android-studio-project-to-github-4d2
 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 
 
 ## Android Studio
 Prosjekter ligger her:
-C:\Users\sw\AndroidStudioProjects
++ C:\Users\sw\AndroidStudioProjects
 
 ## Diverse tips
 Debug:
-Run > Toggle Line Breakpoint or Control-F8
-Run > Step Over	 or type F8
-Run > Step Into	 or type F7
-Run > Step Out	 or type Shift-F8
-Run > Resume Program	 or click the Resume Resume Icon icon
++ Run > Toggle Line Breakpoint or Control-F8
++ Run > Step Over	 or type F8
++ Run > Step Into	 or type F7
++ Run > Step Out	 or type Shift-F8
++ Run > Resume Program	 or click the Resume Resume Icon icon
 
 Reformat your code
-Code > Reformat Code	 or Ctrl+Alt+L
++ Code > Reformat Code	 or Ctrl+Alt+L
 
 Formatere string / sprintf
 ```
