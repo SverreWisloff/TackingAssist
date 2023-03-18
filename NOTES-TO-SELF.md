@@ -1,5 +1,5 @@
 # Android studio - Kotin - NOTES
-_Notes for a functioning asperger_
+_Notes for a functioning alzheimer_
 
 ## Google Play Console
 https://play.google.com/console/u/0/developers/8035817924766649761/app-list
@@ -46,7 +46,7 @@ Reformat your code
 + Code > Reformat Code	 or Ctrl+Alt+L
 
 Formatere string / sprintf
-```
+```kotlin
 val myStr = String.format("The PI value is %.2f", PI)
 Format string: String.format("%.2f kt", boatSpeed)
 ```
@@ -81,33 +81,33 @@ moveto: M (abs.coord)
 lineto: L (abs.coord)
 Ex: M180,180 L190,190 M10,10 L16,16
 ```
-### Codelab: Smooth rotatin og graphic
+#### Codelab: Smooth rotatin og graphic
 - [ ] https://developer.android.com/codelabs/advanced-android-kotlin-training-property-animation#3
-### Draw lines
+#### Draw lines
 - [ ] https://www.geeksforgeeks.org/how-to-draw-a-line-in-android-with-kotlin/
 - [ ] https://www.tutorialspoint.com/how-to-draw-a-line-in-android-using-kotlin
-### Kotlin Line Chart
+#### Kotlin Line Chart
 - [ ] https://medium.com/@yilmazvolkan/kotlinlinecharts-c2a730226ff1
 
 ## Location - GPS
-+ Android Run Tracking App
+#### Android Run Tracking App
 - [ ] https://www.kodeco.com/28767779-how-to-make-an-android-run-tracking-app
-+ Codelab: Receive location updates in Android with Kotlin
+#### Codelab: Receive location updates in Android with Kotlin
 - [ ] https://codelabs.developers.google.com/codelabs/while-in-use-location#3
 
 ## Sensors
-Creating a Barometer Application for Android
+#### Creating a Barometer Application for Android
 - [ ] https://www.ssaurel.com/blog/creating-a-barometer-application-for-android/
-Advanced Android 03.1:Getting sensor data (JAVA)
+#### Advanced Android 03.1:Getting sensor data (JAVA)
 - [ ] https://developer.android.com/codelabs/advanced-android-training-sensor-data?index=..%2F..advanced-android-training#0
-Handling Sensors in Android (Kotlin)
+#### Handling Sensors in Android (Kotlin)
 - [ ] https://nhkarthick.medium.com/handling-sensors-in-android-kotlin-d728ddc20394
 - [ ] https://medium.com/@chris_42047/exploring-device-sensors-in-android-with-kotlin-db3e5ffd361a
-Sensors Tutorial for Android - Compass image
-    https://www.kodeco.com/10838302-sensors-tutorial-for-android-getting-started
-    https://developer.android.com/reference/android/hardware/SensorManager
-Compute the device's orientation.
-    https://developer.android.com/guide/topics/sensors/sensors_position#:~:text=Compute%20the%20device%27s%20orientation.
+#### Sensors Tutorial for Android - Compass image
+- [ ] https://www.kodeco.com/10838302-sensors-tutorial-for-android-getting-started
+- [ ] https://developer.android.com/reference/android/hardware/SensorManager
+#### Compute the device's orientation.
+- [ ] https://developer.android.com/guide/topics/sensors/sensors_position#:~:text=Compute%20the%20device%27s%20orientation.
 
 
 
