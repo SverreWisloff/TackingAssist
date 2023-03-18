@@ -82,18 +82,18 @@ lineto: L (abs.coord)
 Ex: M180,180 L190,190 M10,10 L16,16
 ```
 Codelab: Smooth rotatin og graphic
-    https://developer.android.com/codelabs/advanced-android-kotlin-training-property-animation#3
+[] https://developer.android.com/codelabs/advanced-android-kotlin-training-property-animation#3
 Draw lines
-    https://www.geeksforgeeks.org/how-to-draw-a-line-in-android-with-kotlin/
-    https://www.tutorialspoint.com/how-to-draw-a-line-in-android-using-kotlin
+[] https://www.geeksforgeeks.org/how-to-draw-a-line-in-android-with-kotlin/
+[] https://www.tutorialspoint.com/how-to-draw-a-line-in-android-using-kotlin
 Kotlin Line Chart
-    https://medium.com/@yilmazvolkan/kotlinlinecharts-c2a730226ff1
+[] https://medium.com/@yilmazvolkan/kotlinlinecharts-c2a730226ff1
 
 ## Location - GPS
 Android Run Tracking App
-    https://www.kodeco.com/28767779-how-to-make-an-android-run-tracking-app
+[] https://www.kodeco.com/28767779-how-to-make-an-android-run-tracking-app
 Codelab: Receive location updates in Android with Kotlin
-    https://codelabs.developers.google.com/codelabs/while-in-use-location#3
+[] https://codelabs.developers.google.com/codelabs/while-in-use-location#3
 
 ## Sensors
 Creating a Barometer Application for Android
