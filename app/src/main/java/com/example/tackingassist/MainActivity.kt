@@ -18,6 +18,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.example.tackingassist.ringBuffer
 import com.sverreskort.android.tackingassist.SharedPreferenceUtil
 import com.sverreskort.android.tackingassist.drawHashMarks
 import com.sverreskort.android.tackingassist.reduseDeg
@@ -85,6 +86,12 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
         //function run in debug to achieve drawable hash-marks to the compass
         //val pathData = drawHashMarks(200)
+
+        // TODO Delete this tesing-code....
+        // TESTING RINGBUFFER
+        val Speeds = ringBuffer(10)
+        Speeds.fillDemoData()
+        Speeds.printToLog()
 
         // finding and updating textViewWindDir
         val textViewWindDir = findViewById(R.id.textViewWindDir) as TextView
