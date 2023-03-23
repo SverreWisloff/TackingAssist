@@ -2,13 +2,13 @@ package com.example.tackingassist
 
 import android.util.Log
 
-class ringBuffer (var bufferSize :Int) {
+class RingBuffer (var bufferSize :Int) {
     // constructor
-    val buffer = Array(bufferSize){0.0f}
+    private val buffer = Array(bufferSize){0.0f}
 
     //Member variables
-    var dataSize :Int = 0
-    var NowPointer :Int = -1
+    private var dataSize :Int = 0
+    private var NowPointer :Int = -1
 
 
     // Index   0   1   2   3   4   5   6   7   8   9
@@ -28,21 +28,38 @@ class ringBuffer (var bufferSize :Int) {
     // Class functions
     fun push(newData: Float) {
         Log.d("ringBuffer", "Add-data = $newData")
-        NowPointer+=1;
+        NowPointer+=1
         if (NowPointer>=bufferSize){
-            NowPointer=0;
+            NowPointer=0
         }
-        buffer[NowPointer] = newData;
+        buffer[NowPointer] = newData
+
+        if(dataSize<bufferSize)
+            dataSize++
     }
-    fun dataSize() : Int {
+    fun getDataSize() : Int {
         Log.d("ringBuffer", "dataSize = $dataSize")
         return dataSize
+    }
+    fun getMax(): Float {
+        var max = Float.MIN_VALUE
+        for (i in buffer) {
+            max = max.coerceAtLeast(i)
+        }
+        return max
+    }
+    fun getMin(): Float {
+        var min = Float.MAX_VALUE
+        for (i in buffer) {
+            min = min.coerceAtMost(i)
+        }
+        return min
     }
     fun printToLog() {
         Log.d("ringBuffer", "printToLog()")
         var i = 0
+        var printstring: String
         while( i < bufferSize ) {
-            var printstring: String = ""
             if (i==NowPointer)
                 printstring = "Print: [${i}] = ${buffer[i]}  - NowPointer"
             else
@@ -50,15 +67,21 @@ class ringBuffer (var bufferSize :Int) {
             Log.d("ringBuffer", printstring)
             i++
         }
+        printstring = "Print: Min = ${getMin()}"
+        Log.d("ringBuffer", printstring)
+        printstring = "Print: Max = ${getMax()}"
+        Log.d("ringBuffer", printstring)
+        printstring = "Print: DataSize = ${getDataSize()}"
+        Log.d("ringBuffer", printstring)
     }
     // Make some demodata and fill the array with data from 1 to 3
     fun fillDemoData(){
         var i = 0
         while( i < bufferSize ) {
-            var demodata = Math.PI*2.0;
-            demodata = Math.sin( demodata * i / bufferSize);
-            demodata = demodata + 2;
-            this.push( demodata.toFloat() );
+            var demodata = Math.PI*2.0
+            demodata = Math.sin( demodata * i / bufferSize)
+            demodata = demodata + 2
+            this.push( demodata.toFloat() )
 
             i++
         }

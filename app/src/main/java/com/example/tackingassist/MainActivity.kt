@@ -18,7 +18,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.example.tackingassist.ringBuffer
+import com.example.tackingassist.RingBuffer
 import com.sverreskort.android.tackingassist.SharedPreferenceUtil
 import com.sverreskort.android.tackingassist.drawHashMarks
 import com.sverreskort.android.tackingassist.reduseDeg
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
         // TODO Delete this tesing-code....
         // TESTING RINGBUFFER
-        val Speeds = ringBuffer(10)
+        val Speeds = RingBuffer(10)
         Speeds.fillDemoData()
         Speeds.printToLog()
 
