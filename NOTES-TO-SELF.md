@@ -4,25 +4,24 @@ _Notes for a functioning alzheimer_
 ## Google Play Console
 https://play.google.com/console/u/0/developers/8035817924766649761/app-list
 
-Keystore
+#### Keystore
 C:\Users\sw\Dropbox\00 SVERRE\Android\keystore\
 C:\Users\sw\Dropbox\00 SVERRE\Android\keystores.jks
 
-Release:
-1.Build.gradle: update "versionCode" & "versionName"
+#### Release:
+1. Build.gradle: update "versionCode" & "versionName"
 2. Build > Rebuild project
 3. Build > Generate Signed Bundle/APK
-
-C:\Users\sw\AndroidStudioProjects\TackingAssist\app\release\
+4. C:\Users\sw\AndroidStudioProjects\TackingAssist\app\release\
 
 ## Update launch icon:
 1. update ic_launcher_foreground.xml
 2. Start "Image Asset Studio"
-3.   Configure Imate Asset
-4.   Velg: Launcher icons
-5.   Navn: ic_launcher
-6.   Velg foreground layer: C:\Users\sw\AndroidStudioProjects\TackingAssist\app\src\main\res\drawable\ic_launcher_foreground.xml
-7.   Velg background layer: C:\Users\sw\AndroidStudioProjects\TackingAssist\app\src\main\res\drawable\ic_launcher_background.xml
+3. Configure Imate Asset
+4. Velg: Launcher icons
+5. Navn: ic_launcher
+6. Velg foreground layer: \drawable\ic_launcher_foreground.xml
+7. Velg background layer: \drawable\ic_launcher_background.xml
 
 ## GitHub integrastion:
 1. Generate token: https://stackoverflow.com/questions/64869735/cant-log-in-to-github-on-android-studio
@@ -66,6 +65,13 @@ Kommentarer i xml:
 -->
 ```
 
+
+## Location - GPS
+#### Android Run Tracking App
+- [ ] https://www.kodeco.com/28767779-how-to-make-an-android-run-tracking-app
+#### Codelab: Receive location updates in Android with Kotlin
+- [ ] https://codelabs.developers.google.com/codelabs/while-in-use-location#3
+
 ## Graphics
 #### Codelab: Add vector drawable assets
 - [ ] https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience#3
@@ -86,12 +92,6 @@ Ex: M180,180 L190,190 M10,10 L16,16
 - [ ] https://www.tutorialspoint.com/how-to-draw-a-line-in-android-using-kotlin
 #### Kotlin Line Chart
 - [ ] https://medium.com/@yilmazvolkan/kotlinlinecharts-c2a730226ff1
-
-## Location - GPS
-#### Android Run Tracking App
-- [ ] https://www.kodeco.com/28767779-how-to-make-an-android-run-tracking-app
-#### Codelab: Receive location updates in Android with Kotlin
-- [ ] https://codelabs.developers.google.com/codelabs/while-in-use-location#3
 
 ## Sensors
 #### Creating a Barometer Application for Android
