@@ -97,9 +97,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         val textViewWindDir = findViewById(R.id.textViewWindDir) as TextView
         textViewWindDir.text = "0"
         val textViewStarbCL = findViewById(R.id.textViewStarbCL) as TextView
-        textViewStarbCL.text = "45"
+        textViewStarbCL.text = "315"
         val textViewPortCL = findViewById(R.id.textViewPortCL) as TextView
-        textViewPortCL.text = "-45"
+        textViewPortCL.text = "45"
 
         //Find ImageView
         boatImageView = findViewById(R.id.imageViewBoat)
@@ -133,8 +133,14 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             textViewPortCL.text = PortCL.toInt().toString()
 
             //Rotate compassImage
-            val compassAnimator = ObjectAnimator.ofFloat(compassImageView, View.ROTATION, 360-windBearingOld, 360-windBearing)
-            compassAnimator.duration = 500
+            var fromDegress = 360-windBearingOld
+            var toDegress = 360-windBearing
+            if (fromDegress>315 &&  toDegress<45)
+                fromDegress = fromDegress - 360
+            if (fromDegress<45 &&  toDegress>315)
+                toDegress = toDegress - 360
+            val compassAnimator = ObjectAnimator.ofFloat(compassImageView, View.ROTATION, fromDegress, toDegress)
+            compassAnimator.duration = 400
             compassAnimator.start()
         }
         // get reference to button and set on-click listener
@@ -335,8 +341,13 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 textViewHeading.text = boatHeading.toInt().toString()
 
                 //Rotate boatImage
-//                val boatImageView: ImageView = findViewById(R.id.imageViewBoat)
-                val boatAnimator = ObjectAnimator.ofFloat(boatImageView, View.ROTATION, boatHeadingOld-windBearing, boatHeading-windBearing)
+                var fromDegress = boatHeadingOld-windBearing
+                var toDegress = boatHeading-windBearing
+                if (fromDegress>315 &&  toDegress<45)
+                    fromDegress = fromDegress - 360
+                if (fromDegress<45 &&  toDegress>315)
+                    toDegress = toDegress - 360
+                val boatAnimator = ObjectAnimator.ofFloat(boatImageView, View.ROTATION, fromDegress, toDegress)
                 boatAnimator.duration = 1000
                 boatAnimator.start()
             }
