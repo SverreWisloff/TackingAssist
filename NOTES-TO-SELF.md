@@ -85,13 +85,14 @@ moveto: M (abs.coord)
 lineto: L (abs.coord)
 Ex: M180,180 L190,190 M10,10 L16,16
 ```
-#### Codelab: Smooth rotatin og graphic
+#### Codelab: Smooth rotating og graphic
 - [ ] https://developer.android.com/codelabs/advanced-android-kotlin-training-property-animation#3
 #### Draw lines
 - [ ] https://www.geeksforgeeks.org/how-to-draw-a-line-in-android-with-kotlin/
 - [ ] https://www.tutorialspoint.com/how-to-draw-a-line-in-android-using-kotlin
 #### Kotlin Line Chart
 - [ ] https://medium.com/@yilmazvolkan/kotlinlinecharts-c2a730226ff1
+- [x] https://developer.android.com/codelabs/advanced-android-kotlin-training-canvas
 
 ## Sensors
 #### Creating a Barometer Application for Android
