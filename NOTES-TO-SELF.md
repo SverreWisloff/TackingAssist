@@ -80,10 +80,17 @@ Kommentarer i xml:
 - [ ] https://medium.com/@ali.muzaffar/understanding-vectordrawable-pathdata-commands-in-android-d56a6054610e
 - [ ] https://www.w3.org/TR/SVG/paths.html
 - [ ] https://developer.android.com/studio/write/vector-asset-studio
+#### Tools
+- [ ] Draw SVG: https://boxy-svg.com/app
+- [ ] https://shapeshifter.design/
 ```
 moveto: M (abs.coord)
 lineto: L (abs.coord)
+
 Ex: M180,180 L190,190 M10,10 L16,16
+
+Ex "S": M 6.964 4.95 L 6.543 4.482 C 6.122 4.014 5.279 3.079 4.468 3.079 C 3.657 3.079 2.877 4.014 2.885 4.818 C 2.893 5.621 3.688 6.292 4.515 7.041 C 5.342 7.79 6.199 8.616 6.285 9.381 C 6.371 10.145 5.684 10.846 5.123 11.182 C 4.561 11.517 4.125 11.486 3.446 11.003 C 2.768 10.519 1.848 9.583 1.388 9.115 L 0.928 8.647" bx:d="M 6.964 4.95 U 4.437 2.143 U 2.097 4.95 U 4.484 6.963 U 7.057 9.443 U 4.998 11.548 U 3.688 11.455 U 0.928 8.647 1
+
 ```
 #### Codelab: Smooth rotating og graphic
 - [ ] https://developer.android.com/codelabs/advanced-android-kotlin-training-property-animation#3

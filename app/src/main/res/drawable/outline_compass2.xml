@@ -20,7 +20,28 @@
         <path
             android:strokeColor="#B3B3F8"
             android:strokeWidth="2"
+            android:pathData="M22,95 l-6,0 l0,5 l4,0 l-4,0 l0,5 l6,0"/>
+        <path
+            android:strokeColor="#B3B3F8"
+            android:strokeWidth="2"
             android:pathData="M97,25 l0,-10 l6,8 l0,-10"/>
+        <path
+            android:strokeColor="#B3B3F8"
+            android:strokeWidth="2"
+            android:pathData="M172,95 l3,10 l3,-7 l3,7 l3,-10"/>
+    <group
+        android:name="rotationGroup_S"
+        android:pivotX="1.0"
+        android:pivotY="1.0"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:translateX="95"
+        android:translateY="169"
+        >
+        <path
+            android:strokeColor="#B3B3F8"
+            android:strokeWidth="1.5"
+            android:pathData="M 6.964 4.95 L 6.543 4.482 C 6.122 4.014 5.279 3.079 4.468 3.079 C 3.657 3.079 2.877 4.014 2.885 4.818 C 2.893 5.621 3.688 6.292 4.515 7.041 C 5.342 7.79 6.199 8.616 6.285 9.381 C 6.371 10.145 5.684 10.846 5.123 11.182 C 4.561 11.517 4.125 11.486 3.446 11.003 C 2.768 10.519 1.848 9.583 1.388 9.115 L 0.928 8.647" />
     </group>
-
+    </group>
 </vector>
