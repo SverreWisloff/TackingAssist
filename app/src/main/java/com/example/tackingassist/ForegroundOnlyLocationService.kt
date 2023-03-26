@@ -30,7 +30,6 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.gms.location.*
-import java.util.concurrent.TimeUnit
 import com.sverreskort.android.tackingassist.SharedPreferenceUtil
 import com.sverreskort.android.tackingassist.toText
 
@@ -82,28 +81,13 @@ class ForegroundOnlyLocationService : Service() {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
         // Create a LocationRequest.
-        locationRequest = LocationRequest.create().apply {
-            // Sets the desired interval for active location updates. This interval is inexact. You
-            // may not receive updates at all if no location sources are available, or you may
-            // receive them less frequently than requested. You may also receive updates more
-            // frequently than requested if other applications are requesting location at a more
-            // frequent interval.
-            //
-            // IMPORTANT NOTE: Apps running on Android 8.0 and higher devices (regardless of
-            // targetSdkVersion) may receive updates less frequently than this interval when the app
-            // is no longer in the foreground.
-            interval = TimeUnit.SECONDS.toMillis(2)
-
-            // Sets the fastest rate for active location updates. This interval is exact, and your
-            // application will never receive updates more frequently than this value.
-            fastestInterval = TimeUnit.SECONDS.toMillis(1)
-
-            // Sets the maximum time when batched location updates are delivered. Updates may be
-            // delivered sooner than this interval.
-//            maxWaitTime = TimeUnit.MINUTES.toMillis(2)
-
-            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        }
+        val timeInterval :Long = 500 //TimeUnit.SECONDS.toMillis(1)
+        val minimalDistance = 0f
+        locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, timeInterval).apply {
+            setMinUpdateDistanceMeters(minimalDistance)
+            setGranularity(Granularity.GRANULARITY_PERMISSION_LEVEL)
+            setWaitForAccurateLocation(true)
+        }.build()
 
         Log.d(TAG, "locationRequest: $locationRequest")
 
@@ -162,7 +146,7 @@ class ForegroundOnlyLocationService : Service() {
 
         // MainActivity (client) comes into foreground and binds to service, so the service can
         // become a background services.
-        stopForeground(true)
+        stopForeground(STOP_FOREGROUND_DETACH)
         serviceRunningInForeground = false
         configurationChange = false
         return localBinder
@@ -173,7 +157,7 @@ class ForegroundOnlyLocationService : Service() {
 
         // MainActivity (client) returns to the foreground and rebinds to service, so the service
         // can become a background services.
-        stopForeground(true)
+        stopForeground(STOP_FOREGROUND_DETACH)
         serviceRunningInForeground = false
         configurationChange = false
         super.onRebind(intent)
