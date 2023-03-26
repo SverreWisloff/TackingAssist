@@ -18,9 +18,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.example.tackingassist.RingBuffer
 import com.sverreskort.android.tackingassist.SharedPreferenceUtil
-import com.sverreskort.android.tackingassist.drawHashMarks
 import com.sverreskort.android.tackingassist.reduseDeg
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
@@ -87,19 +85,23 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         //function run in debug to achieve drawable hash-marks to the compass
         //val pathData = drawHashMarks(200)
 
+/*
         // TODO Delete this tesing-code....
+
         // TESTING RINGBUFFER
-        val Speeds = RingBuffer(10)
-        Speeds.fillDemoData()
-        Speeds.printToLog()
+        val speedBuffer = RingBuffer(10)
+        speedBuffer.fillDemoData()
+        speedBuffer.printToLog()
+ */
 
         // finding and updating textViewWindDir
         val textViewWindDir = findViewById(R.id.textViewWindDir) as TextView
-        textViewWindDir.text = "0"
+        textViewWindDir.text = "-"
         val textViewStarbCL = findViewById(R.id.textViewStarbCL) as TextView
-        textViewStarbCL.text = "315"
+        textViewStarbCL.text = "-"
         val textViewPortCL = findViewById(R.id.textViewPortCL) as TextView
-        textViewPortCL.text = "45"
+        textViewPortCL.text = "-"
+        //this.UpdateCompassImage(0, 0) TODO
 
         //Find ImageView
         boatImageView = findViewById(R.id.imageViewBoat)
@@ -126,19 +128,19 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         }
         fun UpdateCompassImage(windBearingOld:Float, windBearingNew:Float){
             //updating WindDir-texts
-            textViewWindDir.text = windBearing.toInt().toString()
-            val StarbCL = reduseDeg(windBearing - 45)
+            textViewWindDir.text = windBearingNew.toInt().toString()
+            val StarbCL = reduseDeg(windBearingNew - 45)
             textViewStarbCL.text = StarbCL.toInt().toString()
-            val PortCL = reduseDeg(windBearing + 45)
+            val PortCL = reduseDeg(windBearingNew + 45)
             textViewPortCL.text = PortCL.toInt().toString()
 
             //Rotate compassImage
             var fromDegress = 360-windBearingOld
-            var toDegress = 360-windBearing
+            var toDegress = 360-windBearingNew
             if (fromDegress>315 &&  toDegress<45)
-                fromDegress = fromDegress - 360
+                fromDegress -= 360
             if (fromDegress<45 &&  toDegress>315)
-                toDegress = toDegress - 360
+                toDegress   -= 360
             val compassAnimator = ObjectAnimator.ofFloat(compassImageView, View.ROTATION, fromDegress, toDegress)
             compassAnimator.duration = 400
             compassAnimator.start()
@@ -331,10 +333,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
                 // finding and updating textViewClock
                 val textViewClock = findViewById(R.id.textViewClock) as TextView
-                textViewClock.text = "UTC = ${utc}"
+                textViewClock.text = String.format("UTC = %s", utc.toString())
                 // finding and updating textViewSpeed
                 val textViewSpeed = findViewById(R.id.textViewSpeed) as TextView
-                //textViewSpeed.text = boatSpeed.toString() + " kt"
                 textViewSpeed.text = String.format("Speed = %.1f kt", boatSpeed)
                 // finding and updating textViewBearing
                 val textViewHeading = findViewById(R.id.textViewHeading) as TextView
@@ -344,9 +345,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 var fromDegress = boatHeadingOld-windBearing
                 var toDegress = boatHeading-windBearing
                 if (fromDegress>315 &&  toDegress<45)
-                    fromDegress = fromDegress - 360
+                    fromDegress -= 360
                 if (fromDegress<45 &&  toDegress>315)
-                    toDegress = toDegress - 360
+                    toDegress -=  360
                 val boatAnimator = ObjectAnimator.ofFloat(boatImageView, View.ROTATION, fromDegress, toDegress)
                 boatAnimator.duration = 1000
                 boatAnimator.start()
