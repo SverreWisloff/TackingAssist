@@ -13,9 +13,7 @@ The direction where the wind comes from is always facing up, and the top number 
 
 In the center circle, course over ground is displayed in yellow. The green number is speed. 
 
-"-5" and "+5" buttons can be used for adjusting the wind direction with 5 degree increments.
-
-"CL-port" and "CL-port" buttens are used to set the wind direction on either port, or starboard close-hauled direction.
+-5 and +5 buttons can be used for adjusting the wind direction with 5 degree increments.
 
 The tack angle is defined to 90 degrees.
 
@@ -39,12 +37,6 @@ In addition to location data, we do not collect any other personal information a
  - First version
  - GPS: Start and stop location service from GPSSet wind dir by port/starboard close-hauled direction
  - Up/Down-buttons : increments wind direction with 5 degrees
- - App uploaded to the Google Play app store, and got approval
-
-1.1.0 (3):
-- Improved rotations of boat and compass
-- NSEW directions in the compass
-- Add buttons to set wind dir by port/starboard close-hauled direction
  
 ## Please use it if you find it convinient
 
