@@ -10,4 +10,7 @@
     <string name="no_location_text">No current location</string>
     <string name="launch_activity">Launch activity</string>
     <string name="main_activity_wind_dir">"000"</string>
+    <string name="start_GPS">"Start GPS"</string>
+    <string name="starb_CL">"Starb CL"</string>
+    <string name="port_CL">"Port CL"</string>
 </resources>

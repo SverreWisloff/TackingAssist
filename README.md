@@ -42,6 +42,7 @@ In addition to location data, we do not collect any other personal information a
  - Improved rotations of boat and compass
  - NSEW directions in the compass 
  - Set wind dir by port/starboard close-hauled direction
+ - Placed the compass lower to make room for the camera
  
 ## Please use it if you find it convinient
 
