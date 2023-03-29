@@ -36,7 +36,12 @@ In addition to location data, we do not collect any other personal information a
 1.0.2 (2): 
  - First version
  - GPS: Start and stop location service from GPSSet wind dir by port/starboard close-hauled direction
- - Up/Down-buttons : increments wind direction with 5 degrees
+ - +/- buttons : increments wind direction with 5 degrees
+
+1.1.1 (3):
+ - Improved rotations of boat and compass
+ - NSEW directions in the compass 
+ - Set wind dir by port/starboard close-hauled direction
  
 ## Please use it if you find it convinient
 

@@ -148,5 +148,21 @@
         app:layout_constraintStart_toStartOf="@+id/imageViewCompass"
         app:layout_constraintTop_toTopOf="@+id/imageViewCompass" />
 
+    <Button
+        android:id="@+id/buttonPortCL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PortCL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonStarbCL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Starb CL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

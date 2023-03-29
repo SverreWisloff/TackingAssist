@@ -165,7 +165,26 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
             UpdateCompassImage(windBearingOld, windBearing)
         }
+        // get reference to button and set on-click listener
+        val btn_click_Starb_CL : Button = findViewById(R.id.buttonStarbCL)
+        btn_click_Starb_CL.setOnClickListener {
+            // your code to perform when the user clicks on the button
+            Log.d(TAG, "You clicked btn_click_Starb_CL")
+            val windBearingOld = windBearing
+            windBearing = reduseDeg(boatHeading + 45.0f)
 
+            UpdateCompassImage(windBearingOld, windBearing)
+        }
+        // get reference to button and set on-click listener
+        val btn_click_Port_CL : Button = findViewById(R.id.buttonPortCL)
+        btn_click_Port_CL.setOnClickListener {
+            // your code to perform when the user clicks on the button
+            Log.d(TAG, "You clicked btn_click_Starb_CL")
+            val windBearingOld = windBearing
+            windBearing = reduseDeg(boatHeading - 45.0f)
+
+            UpdateCompassImage(windBearingOld, windBearing)
+        }
     }
 
     override fun onStart() {
