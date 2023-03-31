@@ -9,10 +9,20 @@ C:\Users\sw\Dropbox\00 SVERRE\Android\keystore\
 C:\Users\sw\Dropbox\00 SVERRE\Android\keystores.jks
 
 #### Release:
-1. Build.gradle: update "versionCode" & "versionName"
+1. \app\build.gradle: update "versionCode" & "versionName"
 2. Build > Rebuild project
 3. Build > Generate Signed Bundle/APK
+ - key store path: C:\Users\sw\Dropbox\00 SVERRE\Android\keystores.jks
+ - key alias: key0 (?)
+ - key export path: C:\Users\sw\Dropbox\00 SVERRE\Android\key
 4. C:\Users\sw\AndroidStudioProjects\TackingAssist\app\release\
+
+#### Upload versjon til Google Play
+1. https://play.google.com/console/
+2. Knapp "Opprett ny utgave"
+3. Last opp \app\release\xxxx.abb
+4. Oppdater "Versjonsnotater"
+5. Neste
 
 ## Update launch icon:
 1. update ic_launcher_foreground.xml
