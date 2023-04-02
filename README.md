@@ -1,4 +1,4 @@
-# TackingMaster
+# Tacking Assist
 _A sailing-app for Android_
 
 ## Purpose
