@@ -31,6 +31,9 @@ We use your location data only to provide you with the services you requested, a
 
 In addition to location data, we do not collect any other personal information about your use of our app.
 
+## Screenshot
+![screehot](https://github.com/SverreWisloff/TackingAssist/blob/master/Screenshot/Screenshot_20230316_220350.png?raw=true)
+
 ## Versions
 
 1.0.2 (2): 
@@ -43,6 +46,9 @@ In addition to location data, we do not collect any other personal information a
  - NSEW directions in the compass 
  - Set wind dir by port/starboard close-hauled direction
  - Placed the compass lower to make room for the camera
+
+TODO (4)
+ - Set the app-name to "Tacking Assist"
  
 ## Please use it if you find it convinient
 
