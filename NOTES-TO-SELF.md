@@ -109,7 +109,10 @@ Ex "S": M 6.964 4.95 L 6.543 4.482 C 6.122 4.014 5.279 3.079 4.468 3.079 C 3.657
 - [ ] https://www.tutorialspoint.com/how-to-draw-a-line-in-android-using-kotlin
 #### Kotlin Line Chart
 - [ ] https://medium.com/@yilmazvolkan/kotlinlinecharts-c2a730226ff1
-- [x] https://developer.android.com/codelabs/advanced-android-kotlin-training-canvas
+- [ ] https://developer.android.com/codelabs/advanced-android-kotlin-training-canvas
+- [ ] https://developer.android.com/codelabs/advanced-android-kotlin-training-custom-views
+- [x] https://www.kodeco.com/142-android-custom-view-tutorial
+- [x] https://developer.android.com/develop/ui/views/layout/custom-views/custom-drawing
 
 ## Sensors
 #### Creating a Barometer Application for Android

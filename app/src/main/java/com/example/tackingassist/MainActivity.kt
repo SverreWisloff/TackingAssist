@@ -18,6 +18,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.sverreskort.android.tackingassist.lineGraphView
 import com.sverreskort.android.tackingassist.SharedPreferenceUtil
 import com.sverreskort.android.tackingassist.reduseDeg
 import com.google.android.material.snackbar.Snackbar
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     private lateinit var compassImageView: ImageView
     private lateinit var boatImageView: ImageView
     private lateinit var windImageView: ImageView
+    private lateinit var speedPlotView: lineGraphView
 
     private val TAG = "MainActivity"
 
@@ -82,17 +84,8 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         sharedPreferences =
             getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE)
 
-        //function run in debug to achieve drawable hash-marks to the compass
+        // function run in debug to achieve drawable hash-marks to the compass
         //val pathData = drawHashMarks(200)
-
-/*
-        // TODO Delete this tesing-code....
-
-        // TESTING RINGBUFFER
-        val speedBuffer = RingBuffer(10)
-        speedBuffer.fillDemoData()
-        speedBuffer.printToLog()
- */
 
         // finding and updating textViewWindDir
         val textViewWindDir = findViewById(R.id.textViewWindDir) as TextView
@@ -101,12 +94,21 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         textViewStarbCL.text = "-"
         val textViewPortCL = findViewById(R.id.textViewPortCL) as TextView
         textViewPortCL.text = "-"
-        //this.UpdateCompassImage(0, 0) TODO
 
         //Find ImageView
         boatImageView = findViewById(R.id.imageViewBoat)
         windImageView = findViewById(R.id.imageViewWind)
         compassImageView = findViewById(R.id.imageViewCompass)
+//        speedPlotView = findViewById(R.id.SpeedPlotView) // TODO - Why does this fucking it up?
+
+        // TODO Later Delete this tesing-code....
+        // TESTING RINGBUFFER and PlotView
+//        val speedBuffer = RingBuffer(10)
+//        speedBuffer.fillDemoData()
+//        speedBuffer.printToLog()
+//        speedPlotView.importData(speedBuffer)
+
+        // TODO Later: Draw compass programatic, to make it responsive. Look here: https://www.kodeco.com/142-android-custom-view-tutorial
 
         startButton = findViewById(R.id.buttonStart)
         startButton.setOnClickListener {

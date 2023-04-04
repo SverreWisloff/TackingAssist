@@ -1,4 +1,4 @@
-package com.example.tackingassist
+package com.sverreskort.android.tackingassist
 
 import android.util.Log
 
@@ -85,5 +85,18 @@ class RingBuffer (var bufferSize :Int) {
 
             i++
         }
+    }
+    fun getData(sinceNow : Int):Float{
+        if (sinceNow>dataSize || sinceNow<0){return 0f}
+
+        var i = NowPointer-sinceNow
+
+        if (i<0){
+            i = dataSize + (i)
+        }
+
+        if (i>dataSize || i<0){return 0.0f}
+
+        return buffer[i];
     }
 }
