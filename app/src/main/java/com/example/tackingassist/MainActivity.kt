@@ -22,6 +22,7 @@ import com.sverreskort.android.tackingassist.lineGraphView
 import com.sverreskort.android.tackingassist.SharedPreferenceUtil
 import com.sverreskort.android.tackingassist.reduseDeg
 import com.google.android.material.snackbar.Snackbar
+import com.sverreskort.android.tackingassist.RingBuffer
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     private var boatHeading = 0.0f
     private var boatSpeed : Double = 0.0
     private var windBearing = 0.0f
+    private var speedBuffer = RingBuffer(31)
 
     // Monitors connection to the while-in-use service.
     private val foregroundOnlyServiceConnection = object : ServiceConnection {
@@ -99,14 +101,12 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         boatImageView = findViewById(R.id.imageViewBoat)
         windImageView = findViewById(R.id.imageViewWind)
         compassImageView = findViewById(R.id.imageViewCompass)
-//        speedPlotView = findViewById(R.id.SpeedPlotView) // TODO - Why does this fucking it up?
+        speedPlotView = findViewById(R.id.SpeedPlotView)
 
         // TODO Later Delete this tesing-code....
         // TESTING RINGBUFFER and PlotView
-//        val speedBuffer = RingBuffer(10)
-//        speedBuffer.fillDemoData()
+        //speedBuffer.fillDemoData()
 //        speedBuffer.printToLog()
-//        speedPlotView.importData(speedBuffer)
 
         // TODO Later: Draw compass programatic, to make it responsive. Look here: https://www.kodeco.com/142-android-custom-view-tutorial
 
@@ -164,6 +164,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             Log.d(TAG, "You clicked btn_click_wind_plus")
             val windBearingOld = windBearing
             windBearing = reduseDeg(windBearing + 5.0f)
+
+            //TODO - Testcode XXXXXXXXXXXXXX
+            //speedPlotView.importData(speedBuffer)
+            //speedPlotView.invalidate()
 
             UpdateCompassImage(windBearingOld, windBearing)
         }
@@ -372,6 +376,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 val boatAnimator = ObjectAnimator.ofFloat(boatImageView, View.ROTATION, fromDegress, toDegress)
                 boatAnimator.duration = 1000
                 boatAnimator.start()
+
+                speedBuffer.push(boatSpeed.toFloat())
+                speedPlotView.importData(speedBuffer)
+                speedPlotView.invalidate()
             }
         }
 

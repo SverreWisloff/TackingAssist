@@ -74,13 +74,13 @@ class RingBuffer (var bufferSize :Int) {
         printstring = "Print: DataSize = ${getDataSize()}"
         Log.d("ringBuffer", printstring)
     }
-    // Make some demodata and fill the array with data from 1 to 3
+    // Make some demodata and fill the array with data from 0.5 to 4.5
     fun fillDemoData(){
         var i = 0
         while( i < bufferSize ) {
             var demodata = Math.PI*2.0
             demodata = Math.sin( demodata * i / bufferSize)
-            demodata = demodata + 2
+            demodata = (demodata*2.0) + 2.5
             this.push( demodata.toFloat() )
 
             i++
