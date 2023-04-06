@@ -42,17 +42,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/outline_wind" />
 
-
-    <TextView
-        android:id="@+id/textViewSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="TextView - Speed"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewCompass" />
-
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
@@ -64,6 +53,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.sverreskort.android.tackingassist.lineGraphView
+        android:id="@+id/SpeedPlotView"
+        android:layout_width="280dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCompass" />
 
     <TextView
         android:id="@+id/textViewClock"
@@ -113,7 +111,6 @@
         android:id="@+id/textViewHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:background="@android:color/black"
         android:text="003"
         android:textColor="@color/orange"
@@ -148,16 +145,19 @@
         app:layout_constraintStart_toStartOf="@+id/imageViewCompass"
         app:layout_constraintTop_toTopOf="@+id/imageViewCompass" />
 
-    <com.sverreskort.android.tackingassist.lineGraphView
-        android:id="@+id/SpeedPlotView"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
+
+    <TextView
+        android:id="@+id/textViewSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:text="0.0 kn"
+        android:textColor="#4CAF50"
+        android:background="@android:color/black"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewCompass" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewClock" />
 
     <Button
         android:id="@+id/buttonPortCL"
