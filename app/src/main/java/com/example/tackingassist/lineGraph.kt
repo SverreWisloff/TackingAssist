@@ -2,13 +2,10 @@ package com.sverreskort.android.tackingassist
 
 import android.content.Context
 import android.graphics.*
-import android.icu.util.UniversalTimeScale.toLong
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import com.sverreskort.android.tackingassist.RingBuffer
 import kotlin.math.floor
-import kotlin.math.min
 
 
 class lineGraphView @JvmOverloads constructor(
@@ -31,12 +28,13 @@ class lineGraphView @JvmOverloads constructor(
     private var plotHeight = 0f
     private var graphMinValue = 0.0f
     private var graphMaxValue = 0.0f
+    private val greenspeed = Color.parseColor("#4CAF50")         // TODO - get color from colors.xml
 
     // Paint styles used for rendering are initialized here. This
     // is a performance optimization, since onDraw() is called
     // for every screen refresh.
     private val paintGraph = Paint().apply {
-        color = Color.GREEN
+        color = greenspeed
         isAntiAlias = true  // Smooths out edges of what is drawn without affecting shape.
         //isDither = true  // Dithering affects how colors with higher-precision than the device are down-sampled.
         style = Paint.Style.STROKE // default: FILL
@@ -44,8 +42,10 @@ class lineGraphView @JvmOverloads constructor(
         //strokeCap = Paint.Cap.ROUND // default: BUTT
         strokeWidth = lineWidth
     }
+
+
     private val paintHelplines = Paint().apply {
-        color = Color.WHITE
+        color = Color.DKGRAY
         style = Paint.Style.STROKE
         strokeWidth = 5f
         //textAlign = Paint.Align.CENTER
@@ -115,7 +115,7 @@ class lineGraphView @JvmOverloads constructor(
     private fun drawHelplines(canvas: Canvas) {
 
         // Fill background color
-        canvas.drawColor(Color.DKGRAY)
+        canvas.drawColor(Color.BLACK)
 
         // Draw a frame around the canvas.
         //canvas.drawRect( inset, inset , graphWidth-rightMargin, graphHeight-inset, paintHelplines)
@@ -169,7 +169,7 @@ class lineGraphView @JvmOverloads constructor(
             // y = Speed
             val y : Float = canvasHeight.toFloat() - ((Data - graphMinValue )/(graphMaxValue - graphMinValue) * (canvasHeight.toFloat()-inset-inset) )
 
-            if (sinceNow==(dataPoints-1))
+            if (sinceNow==(dataPoints-1 ))
                 pathGraph.moveTo(x,y)
             else
                 pathGraph.lineTo(x,y)
