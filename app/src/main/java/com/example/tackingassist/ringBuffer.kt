@@ -1,6 +1,9 @@
 package com.sverreskort.android.tackingassist
 
 import android.util.Log
+import kotlin.math.sin
+
+// TODO test when GPS stops
 
 class RingBuffer (var bufferSize :Int) {
     // constructor
@@ -60,10 +63,12 @@ class RingBuffer (var bufferSize :Int) {
         var i = 0
         var printstring: String
         while( i < bufferSize ) {
-            if (i==NowPointer)
+            if (i == NowPointer) {
                 printstring = "Print: [${i}] = ${buffer[i]}  - NowPointer"
-            else
+            }
+            else {
                 printstring = "Print: [${i}] = ${buffer[i]}"
+            }
             Log.d("ringBuffer", printstring)
             i++
         }
@@ -79,7 +84,7 @@ class RingBuffer (var bufferSize :Int) {
         var i = 0
         while( i < bufferSize ) {
             var demodata = Math.PI*2.0
-            demodata = Math.sin( demodata * i / bufferSize)
+            demodata = sin( demodata * i / bufferSize)
             demodata = (demodata*2.0) + 2.5
             this.push( demodata.toFloat() )
 
@@ -97,6 +102,6 @@ class RingBuffer (var bufferSize :Int) {
 
         if (i>dataSize || i<0){return 0.0f}
 
-        return buffer[i];
+        return buffer[i]
     }
 }

@@ -128,13 +128,13 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 }
             }
         }
-        fun UpdateCompassImage(windBearingOld:Float, windBearingNew:Float){
+        fun updateCompassImage(windBearingOld:Float, windBearingNew:Float){
             //updating WindDir-texts
             textViewWindDir.text = windBearingNew.toInt().toString()
-            val StarbCL = reduseDeg(windBearingNew - 45)
-            textViewStarbCL.text = StarbCL.toInt().toString()
-            val PortCL = reduseDeg(windBearingNew + 45)
-            textViewPortCL.text = PortCL.toInt().toString()
+            val starbCL = reduseDeg(windBearingNew - 45)
+            textViewStarbCL.text = starbCL.toInt().toString()
+            val portCL = reduseDeg(windBearingNew + 45)
+            textViewPortCL.text = portCL.toInt().toString()
 
             //Rotate compassImage
             var fromDegress = 360-windBearingOld
@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             val windBearingOld = windBearing
             windBearing = reduseDeg(windBearing - 5.0f)
 
-            UpdateCompassImage(windBearingOld, windBearing)
+            updateCompassImage(windBearingOld, windBearing)
         }
         // get reference to button and set on-click listener
         val btn_click_wind_plus : Button = findViewById(R.id.buttonWindPlus5)
@@ -169,7 +169,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             //speedPlotView.importData(speedBuffer)
             //speedPlotView.invalidate()
 
-            UpdateCompassImage(windBearingOld, windBearing)
+            updateCompassImage(windBearingOld, windBearing)
         }
         // get reference to button and set on-click listener
         val btn_click_Starb_CL : Button = findViewById(R.id.buttonStarbCL)
@@ -179,7 +179,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             val windBearingOld = windBearing
             windBearing = reduseDeg(boatHeading + 45.0f)
 
-            UpdateCompassImage(windBearingOld, windBearing)
+            updateCompassImage(windBearingOld, windBearing)
         }
         // get reference to button and set on-click listener
         val btn_click_Port_CL : Button = findViewById(R.id.buttonPortCL)
@@ -189,7 +189,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             val windBearingOld = windBearing
             windBearing = reduseDeg(boatHeading - 45.0f)
 
-            UpdateCompassImage(windBearingOld, windBearing)
+            updateCompassImage(windBearingOld, windBearing)
         }
     }
 
@@ -349,8 +349,8 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
             if (location != null) {
                 val boatHeadingOld = boatHeading
-                boatHeading = location.getBearing()
-                boatSpeed = location.getSpeed() * 1.9438452
+                boatHeading = location.bearing
+                boatSpeed = location.speed * 1.9438452
 
                 val date = Date(location.getTime())
                 val simpleDateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault() )

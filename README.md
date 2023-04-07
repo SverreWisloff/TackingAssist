@@ -11,7 +11,7 @@ Observe wind turns and speed-changes, and see the consequences and make good dec
 
 The direction where the wind comes from is always facing up, and the top number is the direction against the wind-eye. The blue "N" shows the direction to north. The yellow dot, and gray boat show your course over ground direction.
 
-In the center circle, course over ground is displayed in yellow. The green number is speed. 
+In the center circle, course over ground is displayed in yellow. The green number is speed in knots. In addition, plot is displayed for historical speed changes.
 
 -5 and +5 buttons can be used for adjusting the wind direction with 5 degree increments.
 
@@ -32,7 +32,7 @@ We use your location data only to provide you with the services you requested, a
 In addition to location data, we do not collect any other personal information about your use of our app.
 
 ## Screenshot
-![screehot](https://github.com/SverreWisloff/TackingAssist/blob/master/Screenshot/Screenshot_20230316_220350.png?raw=true)
+![screehot](https://github.com/SverreWisloff/TackingAssist/blob/master/Screenshot/Screenshot_20230406_233414.png?raw=true)
 
 ## Versions
 
@@ -49,8 +49,10 @@ In addition to location data, we do not collect any other personal information a
 
 TODO (4)
  - Set the app-name to "Tacking Assist"
+ - Speed displayed with large green numbers 
+ - Speed-plot
  
-## Please use it if you find it convinient
+## Please use it if you find it convenient
 
 And I am happy to hear what you think about it
 
