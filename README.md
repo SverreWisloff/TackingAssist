@@ -13,6 +13,8 @@ The direction where the wind comes from is always facing up, and the top number 
 
 In the center circle, course over ground is displayed in yellow. The green number is speed in knots. In addition, plot is displayed for historical speed changes.
 
+By pressing "Starb CL" og "Port CL"-button the wind direction can be defined on either starboard, or port close-hauled direction.
+
 -5 and +5 buttons can be used for adjusting the wind direction with 5 degree increments.
 
 The tack angle is defined to 90 degrees.
@@ -47,7 +49,7 @@ In addition to location data, we do not collect any other personal information a
  - Set wind dir by port/starboard close-hauled direction
  - Placed the compass lower to make room for the camera
 
-TODO (4)
+1.2.4 (4)
  - Set the app-name to "Tacking Assist"
  - Speed displayed with large green numbers 
  - Speed-plot

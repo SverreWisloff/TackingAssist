@@ -10,8 +10,9 @@ C:\Users\sw\Dropbox\00 SVERRE\Android\keystores.jks
 
 #### Release:
 1. \app\build.gradle: update "versionCode" & "versionName"
-2. Build > Rebuild project
-3. Build > Generate Signed Bundle/APK
+2. Select build variant: Release
+3. Build > Rebuild project
+4. Build > Generate Signed Bundle/APK
  - key store path: C:\Users\sw\Dropbox\00 SVERRE\Android\keystores.jks
  - key alias: key0 (?)
  - key export path: C:\Users\sw\Dropbox\00 SVERRE\Android\key

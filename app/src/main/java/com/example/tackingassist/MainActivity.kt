@@ -361,7 +361,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 textViewClock.text = String.format("UTC = %s", utc.toString())
                 // finding and updating textViewSpeed
                 val textViewSpeed = findViewById(R.id.textViewSpeed) as TextView
-                textViewSpeed.text = String.format("%.1f kt", boatSpeed)
+                textViewSpeed.text = String.format("%.1f kn", boatSpeed)
                 // finding and updating textViewBearing
                 val textViewHeading = findViewById(R.id.textViewHeading) as TextView
                 textViewHeading.text = boatHeading.toInt().toString()
