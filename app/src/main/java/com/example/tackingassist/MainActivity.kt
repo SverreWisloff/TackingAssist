@@ -103,11 +103,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         compassImageView = findViewById(R.id.imageViewCompass)
         speedPlotView = findViewById(R.id.SpeedPlotView)
 
-        // TODO Later Delete this tesing-code....
-        // TESTING RINGBUFFER and PlotView
-        //speedBuffer.fillDemoData()
-//        speedBuffer.printToLog()
-
         // TODO Later: Draw compass programatic, to make it responsive. Look here: https://www.kodeco.com/142-android-custom-view-tutorial
 
         startButton = findViewById(R.id.buttonStart)
@@ -164,10 +159,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             Log.d(TAG, "You clicked btn_click_wind_plus")
             val windBearingOld = windBearing
             windBearing = reduseDeg(windBearing + 5.0f)
-
-            //TODO - Testcode XXXXXXXXXXXXXX
-            //speedPlotView.importData(speedBuffer)
-            //speedPlotView.invalidate()
 
             updateCompassImage(windBearingOld, windBearing)
         }
