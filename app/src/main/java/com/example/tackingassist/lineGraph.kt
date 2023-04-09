@@ -127,7 +127,6 @@ class lineGraphView @JvmOverloads constructor(
         canvas.drawLine(leftMargin+inset, helplineTopPix, leftMargin+inset+plotWidth, helplineTopPix, paintHelplines)
         canvas.drawText( helplineTopStr, inset, helplineTopPix+fontsize, paintHelplines)
 
-        // TODO - if ony one hilplne - dont draw it twice ....
         //Draw a help line right over lowest datapont
         val helplineMin =   floor(graphMinValue).toLong() + 1
         val helplineMinPix = canvasHeight.toFloat() - ((helplineMin - graphMinValue )/(graphMaxValue - graphMinValue) * canvasHeight.toFloat())
