@@ -155,6 +155,16 @@ class lineGraphView @JvmOverloads constructor(
         if (dataPoints<1)
             return
 
+        //Vertical scale small enough that minimum two knots is in sight
+        if ( (graphMaxValue-graphMinValue) < 1.8f) {
+            graphMinValue = ( (graphMaxValue+graphMinValue) / 2.0f ) - 1.0f
+            graphMaxValue = ( (graphMaxValue+graphMinValue) / 2.0f ) + 1.0f
+            if (debug) {
+                val printstring = "graphMinValue=${graphMinValue} graphMaxValue=${graphMaxValue} "
+                Log.d("importData", printstring)
+            }
+        }
+
         pathGraph.reset() //Clear any lines and curves from the path, making it empty.
 
         var sinceNow = dataPoints-1
