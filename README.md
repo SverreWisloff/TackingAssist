@@ -52,7 +52,10 @@ In addition to location data, we do not collect any other personal information a
 1.2.4 (4)
  - Set the app-name to "Tacking Assist"
  - Speed displayed with large green numbers 
- - Speed-plot
+ - Added a speed-plot
+
+not released (5)
+ - Enhanced scale to speed-plot
  
 ## Please use it if you find it convenient
 
