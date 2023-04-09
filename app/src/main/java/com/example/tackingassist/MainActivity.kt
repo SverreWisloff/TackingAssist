@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     private var boatHeading = 0.0f
     private var boatSpeed : Double = 0.0
     private var windBearing = 0.0f
-    private var speedBuffer = RingBuffer(31)
+    private var speedBuffer = RingBuffer(90)
 
     // Monitors connection to the while-in-use service.
     private val foregroundOnlyServiceConnection = object : ServiceConnection {
@@ -91,11 +91,11 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
         // finding and updating textViewWindDir
         val textViewWindDir = findViewById(R.id.textViewWindDir) as TextView
-        textViewWindDir.text = "-"
+        textViewWindDir.text = "000"
         val textViewStarbCL = findViewById(R.id.textViewStarbCL) as TextView
-        textViewStarbCL.text = "-"
+        textViewStarbCL.text = "45"
         val textViewPortCL = findViewById(R.id.textViewPortCL) as TextView
-        textViewPortCL.text = "-"
+        textViewPortCL.text = "315"
 
         //Find ImageView
         boatImageView = findViewById(R.id.imageViewBoat)
