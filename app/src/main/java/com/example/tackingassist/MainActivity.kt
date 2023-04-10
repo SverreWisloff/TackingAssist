@@ -18,11 +18,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.sverreskort.android.tackingassist.lineGraphView
-import com.sverreskort.android.tackingassist.SharedPreferenceUtil
-import com.sverreskort.android.tackingassist.reduseDeg
 import com.google.android.material.snackbar.Snackbar
-import com.sverreskort.android.tackingassist.RingBuffer
+import com.sverreskort.android.tackingassist.*
+import com.sverreskort.android.tackingassist.SharedPreferenceUtil
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -53,7 +51,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     private var boatHeading = 0.0f
     private var boatSpeed : Double = 0.0
     private var windBearing = 0.0f
-    private var speedBuffer = RingBuffer(90)
+    private var speedBuffer = RingBuffer(60)
 
     // Monitors connection to the while-in-use service.
     private val foregroundOnlyServiceConnection = object : ServiceConnection {
@@ -93,9 +91,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         val textViewWindDir = findViewById(R.id.textViewWindDir) as TextView
         textViewWindDir.text = "000"
         val textViewStarbCL = findViewById(R.id.textViewStarbCL) as TextView
-        textViewStarbCL.text = "45"
+        textViewStarbCL.text = "315"
         val textViewPortCL = findViewById(R.id.textViewPortCL) as TextView
-        textViewPortCL.text = "315"
+        textViewPortCL.text = "45"
 
         //Find ImageView
         boatImageView = findViewById(R.id.imageViewBoat)
@@ -368,7 +366,8 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 boatAnimator.duration = 1000
                 boatAnimator.start()
 
-                speedBuffer.push(boatSpeed.toFloat())
+                val gpsNow = gpsDynamics(location.getTime(), boatSpeed.toFloat(),0f, boatHeading)
+                speedBuffer.push(gpsNow)
                 speedPlotView.importData(speedBuffer)
                 speedPlotView.invalidate()
             }

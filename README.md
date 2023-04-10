@@ -34,7 +34,7 @@ We use your location data only to provide you with the services you requested, a
 In addition to location data, we do not collect any other personal information about your use of our app.
 
 ## Screenshot
-![screehot](https://github.com/SverreWisloff/TackingAssist/blob/master/Screenshot/Screenshot_20230406_233414.png?raw=true)
+![screehot](https://github.com/SverreWisloff/TackingAssist/blob/master/Screenshot/Screenshot_20230410_173428.png?raw=true)
 
 ## Versions
 
@@ -56,6 +56,7 @@ In addition to location data, we do not collect any other personal information a
 
 not released (5)
  - Enhanced scale to speed-plot
+ - Added smoothing to speed-plot
  
 ## Please use it if you find it convenient
 
