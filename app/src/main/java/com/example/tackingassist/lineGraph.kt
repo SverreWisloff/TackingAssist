@@ -15,9 +15,11 @@ class lineGraphView @JvmOverloads constructor(
     ) : View(context, attrs, defStyleAttr) {
 
     private val debug = true
-    private val lineWidth = 18f
+    private val lineWidth = 20f
     private val fontsize = 60.0f
     private val pathGraph = Path()
+    private val pathSmoothedGraph = Path()
+
     private var size = 0
     private var canvasWidth = 0              // Width of the graph.
     private var canvasHeight = 0
@@ -34,13 +36,23 @@ class lineGraphView @JvmOverloads constructor(
     // is a performance optimization, since onDraw() is called
     // for every screen refresh.
     private val paintGraph = Paint().apply {
-        color = greenspeed
+        color = Color.DKGRAY
         isAntiAlias = true  // Smooths out edges of what is drawn without affecting shape.
         //isDither = true  // Dithering affects how colors with higher-precision than the device are down-sampled.
         style = Paint.Style.STROKE // default: FILL
         //strokeJoin = Paint.Join.ROUND // default: MITER
         //strokeCap = Paint.Cap.ROUND // default: BUTT
         strokeWidth = lineWidth
+    }
+
+    private val paintSmoothedGraph = Paint().apply {
+        color = greenspeed
+        isAntiAlias = true  // Smooths out edges of what is drawn without affecting shape.
+        //isDither = true  // Dithering affects how colors with higher-precision than the device are down-sampled.
+        style = Paint.Style.STROKE // default: FILL
+        //strokeJoin = Paint.Join.ROUND // default: MITER
+        //strokeCap = Paint.Cap.ROUND // default: BUTT
+        strokeWidth = lineWidth / 2f
     }
 
 
@@ -89,6 +101,7 @@ class lineGraphView @JvmOverloads constructor(
 
         drawHelplines(canvas)
         drawGraph(canvas)
+        drawSmoothedGraph(canvas)
         Log.d("lineGraphView", "onDraw")
     }
 
@@ -144,10 +157,14 @@ class lineGraphView @JvmOverloads constructor(
         canvas.drawPath(pathGraph, paintGraph)
     }
 
+    private fun drawSmoothedGraph(canvas: Canvas) {
+        canvas.drawPath(pathSmoothedGraph, paintSmoothedGraph)
+    }
+
     // Import data to plot, and prepare for a path that is drawn
     fun importData(dataBuffer: RingBuffer) {
-        graphMaxValue = dataBuffer.getMax()
-        graphMinValue = dataBuffer.getMin()
+        graphMaxValue = dataBuffer.getMaxSpeed()
+        graphMinValue = dataBuffer.getMinSpeed()
         val dataPoints = dataBuffer.getDataSize()
         var printstring: String
 
@@ -159,30 +176,35 @@ class lineGraphView @JvmOverloads constructor(
             graphMinValue = ( (graphMaxValue+graphMinValue) / 2.0f ) - 1.0f
             graphMaxValue = ( (graphMaxValue+graphMinValue) / 2.0f ) + 1.0f
             if (debug) {
-                val printstring = "graphMinValue=${graphMinValue} graphMaxValue=${graphMaxValue} "
+                printstring = "graphMinValue=${graphMinValue} graphMaxValue=${graphMaxValue} "
                 Log.d("importData", printstring)
             }
         }
 
         pathGraph.reset() //Clear any lines and curves from the path, making it empty.
+        pathSmoothedGraph.reset()
 
         var sinceNow = dataPoints-1
 
         while (sinceNow>=0) {
-            val Data = dataBuffer.getData(sinceNow);
+            val Data = dataBuffer.getGpsData(sinceNow).speed;
+            val Data_smoothed = dataBuffer.getGpsData(sinceNow).speedSmoothed;
 
             // x = Time
-//            val x : Float = canvasWidth-rightMargin-inset - (((sinceNow.toFloat()+1f )/ dataPoints.toFloat()) * (canvasWidth-rightMargin-inset)) + inset
             val x : Float = (plotWidth+leftMargin+inset) - (((sinceNow.toFloat()+1f ) / dataPoints.toFloat()) * (plotWidth))
 
             // y = Speed
             val y : Float = canvasHeight.toFloat() - ((Data - graphMinValue )/(graphMaxValue - graphMinValue) * (canvasHeight.toFloat()-inset-inset) )
+            val y_smoothed : Float = canvasHeight.toFloat() - ((Data_smoothed - graphMinValue )/(graphMaxValue - graphMinValue) * (canvasHeight.toFloat()-inset-inset) )
 
-            if (sinceNow==(dataPoints-1 ))
-                pathGraph.moveTo(x,y)
-            else
-                pathGraph.lineTo(x,y)
-
+            if (sinceNow==(dataPoints-1 )) {
+                pathGraph.moveTo(x, y)
+                pathSmoothedGraph.moveTo(x, y_smoothed)
+            }
+            else {
+                pathGraph.lineTo(x, y)
+                pathSmoothedGraph.lineTo(x, y_smoothed)
+            }
             printstring = "importData x=${x}  y=${y} (i=${sinceNow} dataPoints=${dataPoints} Data=${Data} canvasWidth=${canvasWidth} canvasHeight=${canvasHeight} graphMinValue=${graphMinValue} graphMaxValue=${graphMaxValue} )"
             Log.d("lineGraphView", printstring)
 
