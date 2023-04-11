@@ -131,3 +131,5 @@ Ex "S": M 6.964 4.95 L 6.543 4.482 C 6.122 4.014 5.279 3.079 4.468 3.079 C 3.657
 
 ## App settings
 - [x] https://developer.android.com/codelabs/basic-android-kotlin-training-preferences-datastore#2
+- [ ] https://dewiayuparas97.medium.com/android-fundamentals-9-2-app-settings-6ec9fa0f1717
+- [ ] https://google-developer-training.github.io/android-developer-fundamentals-course-practicals/en/Unit%204/92_p_adding_settings_to_an_app.html
