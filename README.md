@@ -57,7 +57,7 @@ In addition to location data, we do not collect any other personal information a
 1.2.5 (5)
  - Enhanced scale to speed-plot
  - Added smoothing to speed-plot
- - Speed-plot for two minutes
+ - Speed-plot for two minutes.
  
 ## Please use it if you find it convenient
 
