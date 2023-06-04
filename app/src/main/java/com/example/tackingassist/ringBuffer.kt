@@ -60,7 +60,7 @@ class RingBuffer (var bufferSize :Int) {
             // 0,1,2
             this.bufferGps[0].speedSmoothed = bufferGps[0].speed
             if (dataSize>0) {
-                // 1,2
+                // 1,2.
                 this.bufferGps[1].speedSmoothed = bufferGps[1].speed
             }
             if (dataSize>1)
