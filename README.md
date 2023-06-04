@@ -54,9 +54,10 @@ In addition to location data, we do not collect any other personal information a
  - Speed displayed with large green numbers 
  - Added a speed-plot
 
-not released (5)
+1.2.5 (5)
  - Enhanced scale to speed-plot
  - Added smoothing to speed-plot
+ - Speed-plot for two minutes
  
 ## Please use it if you find it convenient
 

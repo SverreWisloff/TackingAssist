@@ -172,9 +172,9 @@ class lineGraphView @JvmOverloads constructor(
             return
 
         //Vertical scale small enough that minimum two knots is in sight
-        if ( (graphMaxValue-graphMinValue) < 1.8f) {
-            graphMinValue = ( (graphMaxValue+graphMinValue) / 2.0f ) - 1.0f
-            graphMaxValue = ( (graphMaxValue+graphMinValue) / 2.0f ) + 1.0f
+        if ( (graphMaxValue-graphMinValue) < 2.5f) {
+            graphMinValue = ( (graphMaxValue+graphMinValue) / 2.0f ) - 1.4f
+            graphMaxValue = ( (graphMaxValue+graphMinValue) / 2.0f ) + 1.4f
             if (debug) {
                 printstring = "graphMinValue=${graphMinValue} graphMaxValue=${graphMaxValue} "
                 Log.d("importData", printstring)

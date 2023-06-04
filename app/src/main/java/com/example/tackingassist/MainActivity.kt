@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     private var boatHeading = 0.0f
     private var boatSpeed : Double = 0.0
     private var windBearing = 0.0f
-    private var speedBuffer = RingBuffer(60)
+    private var speedBuffer = RingBuffer(120)
 
     // Monitors connection to the while-in-use service.
     private val foregroundOnlyServiceConnection = object : ServiceConnection {
