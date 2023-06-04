@@ -34,7 +34,7 @@ class lineGraphView @JvmOverloads constructor(
 
     // Paint styles used for rendering are initialized here. This
     // is a performance optimization, since onDraw() is called
-    // for every screen refresh.
+    // for every screen refresh
     private val paintGraph = Paint().apply {
         color = Color.DKGRAY
         isAntiAlias = true  // Smooths out edges of what is drawn without affecting shape.
