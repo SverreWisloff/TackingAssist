@@ -112,8 +112,8 @@ Ex "S": M 6.964 4.95 L 6.543 4.482 C 6.122 4.014 5.279 3.079 4.468 3.079 C 3.657
 - [ ] https://medium.com/@yilmazvolkan/kotlinlinecharts-c2a730226ff1
 - [ ] https://developer.android.com/codelabs/advanced-android-kotlin-training-canvas
 - [ ] https://developer.android.com/codelabs/advanced-android-kotlin-training-custom-views
-- [x] https://www.kodeco.com/142-android-custom-view-tutorial
-- [x] https://developer.android.com/develop/ui/views/layout/custom-views/custom-drawing
+- [ ] https://www.kodeco.com/142-android-custom-view-tutorial
+- [ ] https://developer.android.com/develop/ui/views/layout/custom-views/custom-drawing
 
 ## Sensors
 #### Creating a Barometer Application for Android
@@ -129,5 +129,7 @@ Ex "S": M 6.964 4.95 L 6.543 4.482 C 6.122 4.014 5.279 3.079 4.468 3.079 C 3.657
 #### Compute the device's orientation.
 - [ ] https://developer.android.com/guide/topics/sensors/sensors_position#:~:text=Compute%20the%20device%27s%20orientation.
 
-
-
+## App settings
+- [x] https://developer.android.com/codelabs/basic-android-kotlin-training-preferences-datastore#2
+- [ ] https://dewiayuparas97.medium.com/android-fundamentals-9-2-app-settings-6ec9fa0f1717
+- [ ] https://google-developer-training.github.io/android-developer-fundamentals-course-practicals/en/Unit%204/92_p_adding_settings_to_an_app.html
