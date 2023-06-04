@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
     private val TAG = "MainActivity"
 
-    //Current dynamics
+    //Current dynamics.
     private var boatHeading = 0.0f
     private var boatSpeed : Double = 0.0
     private var windBearing = 0.0f
